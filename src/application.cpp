@@ -23,6 +23,7 @@ Application::Application() {
     glfwSwapInterval(1);
     glfwSetKeyCallback(m_window, on_key);
     m_gui.init(m_window);
+    m_scene.init();
 }
 Application::~Application() {
     glfwDestroyWindow(m_window);
@@ -36,6 +37,7 @@ void Application::run() const {
     while (!glfwWindowShouldClose(m_window)) {
         m_gui.draw();
         glClear(GL_COLOR_BUFFER_BIT);
+        m_scene.draw();
         m_gui.render();
         glfwSwapBuffers(m_window);
         glfwPollEvents();

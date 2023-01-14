@@ -2,6 +2,7 @@
 #define RAYMARCH_APPLICATION_HPP
 
 #include "app_gui.hpp"
+#include "scene.hpp"
 
 struct GLFWwindow;
 
@@ -15,6 +16,7 @@ private:
     ~Application();
     GLFWwindow *m_window;
     AppGUI m_gui;
+    Scene m_scene;
 
     static void on_error(int error, const char *description);
     static void on_key(GLFWwindow *window, int key, int scancode, int action, int mods);
