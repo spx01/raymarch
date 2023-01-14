@@ -1,6 +1,7 @@
 #include "application.hpp"
 
 #include <fmt/format.h>
+#include <glbinding/glbinding.h>
 
 #include "common.hpp"
 
