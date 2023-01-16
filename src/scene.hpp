@@ -3,6 +3,7 @@
 
 class Scene {
 public:
+    Scene() = default;
     ~Scene();
     void init();
     void draw() const;

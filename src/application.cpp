@@ -2,8 +2,10 @@
 
 #include <fmt/format.h>
 #include <glbinding/glbinding.h>
-
-#include "common.hpp"
+#include <glbinding/gl/gl.h>
+using namespace gl;
+#define GLFW_INCLUDE_NONE
+#include <GLFW/glfw3.h>
 
 Application::Application() {
     glfwSetErrorCallback(on_error);
@@ -14,6 +16,7 @@ Application::Application() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
+    glfwWindowHint(GLFW_SAMPLES, 4);
     m_window = glfwCreateWindow(640, 480, "raymarch", nullptr, nullptr);
     if (!m_window) {
         throw std::runtime_error("Failed to create window");
@@ -22,6 +25,7 @@ Application::Application() {
     glbinding::initialize(glfwGetProcAddress);
     glfwSwapInterval(1);
     glfwSetKeyCallback(m_window, on_key);
+    glEnable(GL_MULTISAMPLE);
     m_gui.init(m_window);
     m_scene.init();
 }
