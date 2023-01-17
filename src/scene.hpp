@@ -1,15 +1,17 @@
 #ifndef RAYMARCH_SCENE_HPP
 #define RAYMARCH_SCENE_HPP
 
+#include "shader.hpp"
+
 class Scene {
 public:
     Scene() = default;
     ~Scene();
     void init();
-    void draw() const;
+    void draw();
 private:
     unsigned int m_vao;
-    unsigned int m_shader;
+    Shader m_shader;
 };
 
 #endif//RAYMARCH_SCENE_HPP

@@ -17,15 +17,20 @@ Application::Application() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
     glfwWindowHint(GLFW_SAMPLES, 4);
-    m_window = glfwCreateWindow(640, 480, "raymarch", nullptr, nullptr);
+    m_window = glfwCreateWindow(800, 800, "raymarch", nullptr, nullptr);
     if (!m_window) {
         throw std::runtime_error("Failed to create window");
     }
     glfwMakeContextCurrent(m_window);
     glbinding::initialize(glfwGetProcAddress);
     glfwSwapInterval(1);
-    glfwSetKeyCallback(m_window, on_key);
     glEnable(GL_MULTISAMPLE);
+
+    glfwSetKeyCallback(m_window, on_key);
+    glfwSetWindowSizeCallback(m_window, on_resize);
+    glfwSetCursorPosCallback(m_window, on_mouse_move);
+    glfwSetScrollCallback(m_window, on_scroll);
+    glfwSetMouseButtonCallback(m_window, on_mouse_button);
     m_gui.init(m_window);
     m_scene.init();
 }
@@ -37,7 +42,7 @@ Application *Application::instance() {
     static Application app;
     return &app;
 }
-void Application::run() const {
+void Application::run() {
     while (!glfwWindowShouldClose(m_window)) {
         m_gui.draw();
         glClear(GL_COLOR_BUFFER_BIT);
@@ -50,5 +55,19 @@ void Application::run() const {
 void Application::on_error(int error, const char *description) {
     fmt::print("GLFW error {}: {}\n", error, description);
 }
+
 void Application::on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
+}
+
+void Application::on_resize(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
+
+void Application::on_mouse_move(GLFWwindow *window, double xpos, double ypos) {
+}
+
+void Application::on_scroll(GLFWwindow *window, double xoffset, double yoffset) {
+}
+
+void Application::on_mouse_button(GLFWwindow *window, int button, int action, int mods) {
 }

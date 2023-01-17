@@ -9,7 +9,7 @@ struct GLFWwindow;
 class Application {
 public:
     static Application *instance();
-    void run() const;
+    void run();
 
 private:
     Application();
