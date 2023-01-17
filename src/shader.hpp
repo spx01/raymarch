@@ -3,8 +3,8 @@
 
 #include <map>
 
-#include <glm/glm.hpp>
 #include <glbinding/gl/gl.h>
+#include <glm/glm.hpp>
 using namespace gl;
 
 class Shader {
@@ -13,8 +13,8 @@ public:
     void init(const char *vertex_source, const char *fragment_source);
     ~Shader();
     void use() const;
-    template <typename F, typename ...T>
-    void set(const char *name, F func, T ...args) {
+    template<typename F, typename... T>
+    void set(const char *name, F func, T... args) {
         auto it = m_uniforms.find(name);
         if (it == m_uniforms.end()) {
             m_uniforms[name] = glGetUniformLocation(id, name);
@@ -26,6 +26,7 @@ public:
     void set_float(const char *name, float value) const;
     void set_vec3(const char *name, glm::vec3 v) const;
     void set_vec4(const char *name, glm::vec4 v) const;
+
 private:
     std::map<const char *, int> m_uniforms;
 };

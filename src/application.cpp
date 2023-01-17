@@ -1,8 +1,8 @@
 #include "application.hpp"
 
 #include <fmt/format.h>
-#include <glbinding/glbinding.h>
 #include <glbinding/gl/gl.h>
+#include <glbinding/glbinding.h>
 using namespace gl;
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>

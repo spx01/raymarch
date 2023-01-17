@@ -18,11 +18,14 @@ void Scene::init() {
             1.0f, 1.0f,
             1.0, -1.0f,
             -1.0f, -1.0f,
-            -1.0f, 1.0f
-    };
+            -1.0f, 1.0f};
     unsigned int indices[] = {
-            0, 1, 2,
-            0, 2, 3,
+            0,
+            1,
+            2,
+            0,
+            2,
+            3,
     };
     unsigned int vbo;
     glGenBuffers(1, &vbo);
@@ -46,7 +49,8 @@ smooth out vec2 ray_offset;
 void main() {
     gl_Position = vec4(position, 0.0, 1.0);
     ray_offset = position;
-})", frag_source.c_str());
+})",
+                  frag_source.c_str());
 
     vec3 obj_pos = vec3(0.0f, 0.0f, 1.0f);
     auto q = identity<quat>();

@@ -9,6 +9,7 @@ public:
     ~Scene();
     void init();
     void draw();
+
 private:
     unsigned int m_vao;
     Shader m_shader;
