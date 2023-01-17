@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# will problably ditch glsltc because it has some issues with forwarding function parameters
+
 compile_shader () {
     glsltc -o "$1.gen" "$1"
     # for some reason when i include the version directive directly in the shader file,
