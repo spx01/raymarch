@@ -1,4 +1,4 @@
-in vec2 ray_offset;
+smooth in vec2 ray_offset;
 out vec4 frag_color;
 
 uniform mat4 global_to_local;
