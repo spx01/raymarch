@@ -43,7 +43,7 @@ void Scene::init() {
     std::ifstream file("assets/shader_rewrite.glsl.gen");
     std::string frag_source{std::istreambuf_iterator<char>(file), std::istreambuf_iterator<char>()};
     m_shader.init(R"(
-#version 460 core
+#version 330 core
 layout (location = 0) in vec2 position;
 smooth out vec2 ray_offset;
 void main() {

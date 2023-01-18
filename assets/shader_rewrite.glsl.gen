@@ -1,7 +1,7 @@
 // generated with glsltc
-#version 460 core
+#version 330 core
 
-in vec2 ray_offset;
+smooth in vec2 ray_offset;
 out vec4 frag_color;
 uniform mat4 global_to_local;
 uniform mat4 local_to_global;
