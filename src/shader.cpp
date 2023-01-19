@@ -45,23 +45,3 @@ Shader::~Shader() {
 void Shader::use() const {
     glUseProgram(id);
 }
-
-void Shader::set_bool(const char *name, bool value) const {
-    glUniform1i(glGetUniformLocation(id, name), static_cast<int>(value));
-}
-
-void Shader::set_int(const char *name, int value) const {
-    glUniform1i(glGetUniformLocation(id, name), value);
-}
-
-void Shader::set_float(const char *name, float value) const {
-    glUniform1f(glGetUniformLocation(id, name), value);
-}
-
-void Shader::set_vec3(const char *name, glm::vec3 v) const {
-    glUniform3f(glGetUniformLocation(id, name), v.x, v.y, v.z);
-}
-
-void Shader::set_vec4(const char *name, glm::vec4 v) const {
-    glUniform4f(glGetUniformLocation(id, name), v.x, v.y, v.z, v.w);
-}

@@ -2,6 +2,8 @@
 smooth in vec2 ray_offset;
 out vec4 frag_color;
 
+uniform float time;
+
 uniform mat4 global_to_local;
 uniform mat4 local_to_global;
 uniform vec4 obj_params;
