@@ -1,10 +1,11 @@
 #ifndef RAYMARCH_APPLICATION_HPP
 #define RAYMARCH_APPLICATION_HPP
 
+#define GLFW_INCLUDE_NONE
+#include <GLFW/glfw3.h>
+
 #include "app_gui.hpp"
 #include "scene.hpp"
-
-struct GLFWwindow;
 
 class Application {
 public:
@@ -17,6 +18,8 @@ private:
     GLFWwindow *m_window;
     AppGUI m_gui;
     Scene m_scene;
+    int m_width;
+    int m_height;
 
     static void on_error(int error, const char *description);
     static void on_key(GLFWwindow *window, int key, int scancode, int action, int mods);
